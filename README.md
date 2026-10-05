@@ -27,7 +27,7 @@ Firmware de control autónomo para Robot de Sumo con tracción holonómica/omnid
                  /              \
             (TI)                  (TD)
         [Trasero Izq]          [Trasero Der]
-
+```
 ## Asignación de Pines (Arduino Mega)
 
 | Componente | Función | Pin Arduino | Tipo |
