@@ -8,6 +8,32 @@ Firmware de control autónomo para Robot de Sumo con tracción holonómica/omnid
 
 > **¿Buscas la versión diferencial?** Para la versión estándar de 2 canales IBT-2 en Arduino Uno/Nano, consulta el repositorio [Codigo-sumo](https://github.com/Fredyproxd34/Codigo-sumo).
 
+## Diagrama de Flujo (Máquina de Estados)
+
+
+
+```mermaid
+
+graph TD
+
+    A[INICIO_RUSH] -->|350 ms| B[BUSCANDO]
+
+    B -->|Línea detectada| C[ESCAPANDO]
+
+    B -->|Target < 45cm x2| D[ATACANDO]
+
+    B -->|Timeout 2.8s| E[GIRANDO180]
+
+    D -->|Target < 12cm| F[REMATE MAX VEL]
+
+    D -->|Pérdida de rastro > 450ms| B
+
+    C -->|Línea despejada| E
+
+    E -->|Giro completado 420ms| B
+
+``` 
+
 ## Especificaciones Hardware
 - **Controlador:** Arduino Mega 2560 (requiere 8 pines PWM independientes)
 - **Drivers de Motor:** 4x IBT-2 (H-Bridge 43A)
